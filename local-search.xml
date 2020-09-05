@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>用spring+springMvc做的小案例</title>
+    <link href="/2020/09/03/%E7%94%A8spring-springMvc%E5%81%9A%E7%9A%84%E5%B0%8F%E6%A1%88%E4%BE%8B/"/>
+    <url>/2020/09/03/%E7%94%A8spring-springMvc%E5%81%9A%E7%9A%84%E5%B0%8F%E6%A1%88%E4%BE%8B/</url>
+    
+    <content type="html"><![CDATA[<p>#需要运用spring&amp;springMVC等知识<br>##经过为期5天的学习，基本掌握渐显的spring&amp;springmvc框架知识，了解了一些框架的基本原理，首先spring需要进行配置文件，配置bean对象，当我们进行三层架构时，web可用注解controle servie层和dao层进行配置文件时，需要无参构造，或者使其setter方法，依赖注入。在最项目中尽可能的代码解耦，<br>###1.导入所需的的工作环境<br>2.配置Maven导入所需的jar包坐标<br>3.分析流程图<br>4.熟练运用三层架构思想<br>5.CRUD逐个解决<br>6.前端数据交互等等<br>####总结，基本掌握一些框架知识，但不能完全独立写出代码流程，crud也不是完全掌握，需要今后多做练习，进行反复嵌套知识，形成一个流程网。。</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title></title>
     <link href="/2020/08/27/titleHello/"/>
     <url>/2020/08/27/titleHello/</url>
