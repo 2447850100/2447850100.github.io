@@ -280,7 +280,7 @@
       
       
         <p class="article-more-link">
-          <a  href="/2020/09/07/%E7%AE%97%E6%B3%95D-C/#more">大航海 >></a>
+          <a  href="/2020/09/07/%E7%AE%97%E6%B3%95D-C/#more">精彩部分 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -315,72 +315,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>title: MyBatis的学习笔记<br>date: 2020-09-05 17:49:19<br>tags:</p>
-<h1 id="1-Mybatis的Dao层实现"><a href="#1-Mybatis的Dao层实现" class="headerlink" title="1.Mybatis的Dao层实现"></a>1.Mybatis的Dao层实现</h1><h2 id="1-1传统的开发方式"><a href="#1-1传统的开发方式" class="headerlink" title="1.1传统的开发方式"></a>1.1传统的开发方式</h2><p>1.1.1编写UserDao接口</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">`<span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserDao</span> </span>&#123;`</span><br><span class="line">    `<span class="function">List&lt;User&gt; <span class="title">findAll</span><span class="params">()</span> <span class="keyword">throws</span> IOException</span>;`</span><br><span class="line">`&#125;`</span><br></pre></td></tr></table></figure>
-
-<p>1.1.1编写UserDaoImpl实现类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">`<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserDaoImpl</span> <span class="keyword">implements</span> <span class="title">UserDao</span> </span>&#123;`</span><br><span class="line">    `<span class="function"><span class="keyword">public</span> List&lt;User&gt; <span class="title">findAll</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;`</span><br><span class="line">        `InputStream resourceAsStream =` </span><br><span class="line">                    `Resources.getResourceAsStream(<span class="string">&quot;SqlMapConfig.xml&quot;</span>);`</span><br><span class="line">        `SqlSessionFactory sqlSessionFactory = <span class="keyword">new</span>` </span><br><span class="line">                    `SqlSessionFactoryBuilder().build(resourceAsStream);`</span><br><span class="line">        `SqlSession sqlSession = sqlSessionFactory.openSession();`</span><br><span class="line">        `List&lt;User&gt; userList = sqlSession.selectList(<span class="string">&quot;userMapper.findAll&quot;</span>);`</span><br><span class="line">        `sqlSession.close();`</span><br><span class="line">        `<span class="keyword">return</span> userList;`</span><br><span class="line">    `&#125;`</span><br><span class="line">`&#125;`</span><br></pre></td></tr></table></figure>
-
-<p>1.1.3测试传统方式</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">`<span class="meta">@Test</span>`</span><br><span class="line">`<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testTraditionDao</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;`</span><br><span class="line">    `UserDao userDao = <span class="keyword">new</span> UserDaoImpl();`</span><br><span class="line">    `List&lt;User&gt; all = userDao.findAll();`</span><br><span class="line">    `System.out.println(all);`</span><br><span class="line">`&#125;`</span><br></pre></td></tr></table></figure>
-
-<h3 id="1-2代理开发方式"><a href="#1-2代理开发方式" class="headerlink" title="1.2代理开发方式"></a>1.2代理开发方式</h3><p>1.2.1代理开发方式介绍</p>
-<p>采用 Mybatis 的代理开发方式实现 DAO 层的开发，这种方式是我们后面进入企业的主流。</p>
-<p>Mapper 接口开发方法只需要程序员编写Mapper 接口（相当于Dao 接口），由Mybatis 框架根据接口定义创建接口的动态代理对象，代理对象的方法体同上边Dao接口实现类方法。</p>
-<p>Mapper接口开发需要遵循以下规范：</p>
-<p><strong>1) Mapper.xml文件中的namespace与mapper接口的全限定名相同</strong></p>
-<p><strong>2) Mapper接口方法名和Mapper.xml中定义的每个statement的id相同</strong></p>
-<p><strong>3) Mapper接口方法的输入参数类型和mapper.xml中定义的每个sql的parameterType的类型相同</strong></p>
-<p><strong>4) Mapper接口方法的输出参数类型和mapper.xml中定义的每个sql的resultType的类型相同</strong></p>
-<h2 id="2-MyBatis映射文件"><a href="#2-MyBatis映射文件" class="headerlink" title="2.MyBatis映射文件"></a>2.MyBatis映射文件</h2><p>2.1动态的sql语句</p>
-<p>2.1.1<if>标签</p>
-<p>我们根据实体类的不同取值，使用不同的 SQL语句来进行查询。比如在 id如果不为空时可以根据id查询，如果username 不同空时还要加入用户名作为条件。这种情况在我们的多条件组合查询中经常会碰到。</p>
-<select id="findByCondition" parameterType="user" resultType="user">
-    select * from User
-    <where>
-        <if test="id!=0">
-            and id=#{id}
-        </if>
-        <if test="username!=null">
-            and username=#{username}
-        </if>
-    </where>
-</select>
-2.1.2<forEach>标签
-
-<select id="findByIds" parameterType="list" resultType="user">
-    select * from User
-    <where>
-        <foreach collection="array" open="id in(" close=")" item="id" separator=",">
-            #{id}
-        </foreach>
-    </where>
-</select>
-
-<p>循环执行sql的拼接操作，例如：SELECT * FROM USER WHERE id IN (1,2,5)。</p>
-<p>foreach标签的属性含义如下：</p>
-<p><foreach>标签用于遍历集合，它的属性：</p>
-<p>•collection：代表要遍历的集合元素，注意编写时不要写#{}</p>
-<p>•open：代表语句的开始部分</p>
-<p>•close：代表结束部分</p>
-<p>•item：代表遍历集合的每个元素，生成的变量名</p>
-<p>•sperator：代表分隔符</p>
-<h2 id="2-2sql片段的抽取"><a href="#2-2sql片段的抽取" class="headerlink" title="2.2sql片段的抽取"></a>2.2sql片段的抽取</h2><p>sql中有重复的sql抽取出来，方便维护，减少代码的冗余性。。使用include标签即可。</p>
-<h3 id="3-plugins标签"><a href="#3-plugins标签" class="headerlink" title="3.plugins标签"></a>3.plugins标签</h3><p>MyBatis可以使用第三方的插件来对功能进行扩展，分页助手PageHelper是将分页的复杂操作进行封装，使用简单的方式即可获得分页的相关数据</p>
-<p>开发步骤：</p>
-<p>①导入通用PageHelper的坐标</p>
-<p>②在mybatis核心配置文件中配置PageHelper插件</p>
-<p>③测试分页数据获取</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 分页助手 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.pagehelper<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>pagehelper<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.2.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.jsqlparser<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jsqlparser<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>2.在mybatis核心配置文件中配置PageHelper插件</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 注意：分页助手的插件  配置在通用馆mapper之前 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">plugin</span> <span class="attr">interceptor</span>=<span class="string">&quot;com.github.pagehelper.PageInterceptor&quot;</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="注意：当使用pageHelper版本为5-0以上的时候，配置文件中不能使用以下配置："><a href="#注意：当使用pageHelper版本为5-0以上的时候，配置文件中不能使用以下配置：" class="headerlink" title="注意：当使用pageHelper版本为5.0以上的时候，配置文件中不能使用以下配置："></a><em>注意：当使用pageHelper版本为5.0以上的时候，配置文件中不能使用以下配置：</em></h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 注意：分页助手的插件  配置在通用馆mapper之前 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">plugin</span> <span class="attr">interceptor</span>=<span class="string">&quot;com.github.pagehelper.PageHelper&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定方言 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;dialect&quot;</span> <span class="attr">value</span>=<span class="string">&quot;mysql&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>因为MyBatis实现插件原理是底层通过intercepto接口，而pageHelper5.0以上版本是通过PageInterceptor类继承的intercepto </p>
-<p><img src="D:\Hexo\source_posts\MyBatis的学习笔记\pageHelper.png" alt="pageHelper"><img src="/2020/09/05/MyBatis%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/pageHelper.png" class="" title="This is an image % }&lt;&#x2F;p&gt; &lt;h4 id&#x3D;3-3-知识小结&gt;&lt;a href&#x3D;#3-3-知识小结 class&#x3D;headerlink title&#x3D;3.3 知识小结&gt;&lt;&#x2F;a&gt;3.3 知识小结&lt;&#x2F;h4&gt;&lt;p&gt;MyBatis核心配置文件常用标签：&lt;&#x2F;p&gt; &lt;p&gt;1、properties标签：该标签可以加载外部的properties文件&lt;&#x2F;p&gt; &lt;p&gt;2、typeAliases标签：设置类型别名&lt;&#x2F;p&gt; &lt;p&gt;3、environments标签：数据源环境配置标签&lt;&#x2F;p&gt; &lt;p&gt;4、typeHandlers标签：配置自定义类型处理器&lt;&#x2F;p&gt; &lt;p&gt;5、plugins标签：配置MyBatis的插件&lt;&#x2F;p&gt;">
+              <p>title: MyBatis的学习笔记<br>date: 2020-09-05 17:49:19<br>tags:</p>
+<h1 id="1-Mybatis的Dao层实现"><a href="#1-Mybatis的Dao层实现" class="headerlink" title="1.Mybatis的Dao层实现"></a>1.Mybatis的Dao层实现</h1>
+          
       
       
     </div>
@@ -390,6 +327,10 @@
       
 
       
+      
+        <p class="article-more-link">
+          <a  href="/2020/09/05/MyBatis%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">精彩部分 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -480,20 +421,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+              <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+          
       
       
     </div>
@@ -503,6 +432,10 @@
       
 
       
+      
+        <p class="article-more-link">
+          <a  href="/2020/08/27/hello-world/#more">精彩部分 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
