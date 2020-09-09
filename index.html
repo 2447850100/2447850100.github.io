@@ -120,7 +120,7 @@
                     <nav class="header-menu">
                         <ul>
                         
-                            <li><a href="/2447850100.github.io">博客首页</a></li>
+                            <li><a href="/Home">博客首页</a></li>
                         
                             <li><a href="/works">作品展示</a></li>
                         
@@ -161,7 +161,7 @@
                 <section class="switch-part switch-part3">
                     <div id="js-friends">
                     
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://luuman.github.io/">name</a>
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://2447850100.github.io/">name</a>
                     
                     </div>
                 </section>
@@ -204,7 +204,7 @@
             <nav class="header-menu">
                 <ul>
                 
-                    <li><a href="/2447850100.github.io">博客首页</a></li>
+                    <li><a href="/Home">博客首页</a></li>
                 
                     <li><a href="/works">作品展示</a></li>
                 
@@ -264,35 +264,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <hr>
+              <hr>
 <p>title: 算法D&amp;C<br>author: 小胡<br>tags:</p>
 <p>正文：</p>
 <hr>
-<h1 id="分而治之"><a href="#分而治之" class="headerlink" title="分而治之"></a>分而治之</h1><h2 id="D-amp-C直观示例："><a href="#D-amp-C直观示例：" class="headerlink" title="D&amp;C直观示例："></a>D&amp;C直观示例：</h2>
-
-<p>假设你是农场主，有一块土地。</p>
-
-
-<p>你要将这块地均匀的分成方块，且分出的方块要尽可能大。显然，下面的分法都不符合要求。</p>
-
-
-<p>如何将一块地均匀地分成方块，并确保分出方块是最大的呢？使用D&amp;C策略！D&amp;C算法是递归的。使用D&amp;C解决问题的过程包括两个步骤。</p>
-<h3 id="1-1找出基线条件，这种条件必须可能简单"><a href="#1-1找出基线条件，这种条件必须可能简单" class="headerlink" title="1.1找出基线条件，这种条件必须可能简单"></a>1.1<em>找出基线条件，这种条件必须可能简单</em></h3><h3 id="2-2不断将问题分解（或者说缩小规模），直到符合基线条件。"><a href="#2-2不断将问题分解（或者说缩小规模），直到符合基线条件。" class="headerlink" title="2.2不断将问题分解（或者说缩小规模），直到符合基线条件。"></a><em>2.2不断将问题分解（或者说缩小规模），直到符合基线条件</em>。</h3><h4 id="下面就来使用D-amp-C找出前述问题的解决方案。可你能使用的最大方块有多大呢？"><a href="#下面就来使用D-amp-C找出前述问题的解决方案。可你能使用的最大方块有多大呢？" class="headerlink" title="下面就来使用D&amp;C找出前述问题的解决方案。可你能使用的最大方块有多大呢？"></a>下面就来使用D&amp;C找出前述问题的解决方案。可你能使用的最大方块有多大呢？</h4><h4 id="首先，找出基线条件。最容易处理的情况是，一条边的长度是另一条边的整数倍。"><a href="#首先，找出基线条件。最容易处理的情况是，一条边的长度是另一条边的整数倍。" class="headerlink" title="首先，找出基线条件。最容易处理的情况是，一条边的长度是另一条边的整数倍。"></a>首先，找出基线条件。最容易处理的情况是，一条边的长度是另一条边的整数倍。</h4>
-
-<p>如果一边长25 m，另一边长50 m，那么可使用的最大方块为 25 m×25 m。换言之，可以将这块地分成两个这样的方块。</p>
-<p>现在需要找出递归条件，这正是D&amp;C的用武之地。根据D&amp;C的定义，每次递归调用都必须缩小问题的规模。如何缩小前述问题的规模呢？我们首先找出这块地可容纳的最大方块。</p>
-
-
-<p>你可以从这块地中划出两个640 m×640 m的方块，同时余下一小块地。现在是顿悟时刻：何不对余下的那一小块地使用相同的算法呢？</p>
-
-
-<h4 id="最初要划分的土地尺寸为1680-m×640-m，而现在要划分的土地更小，为640-m×400-m。-适用于这小块地的最大方块，也是适用于整块地的最大方块-。换言之，你将均匀划分1680-m×640-m土地的问题，简化成了均匀划分640m-400m土地的问题"><a href="#最初要划分的土地尺寸为1680-m×640-m，而现在要划分的土地更小，为640-m×400-m。-适用于这小块地的最大方块，也是适用于整块地的最大方块-。换言之，你将均匀划分1680-m×640-m土地的问题，简化成了均匀划分640m-400m土地的问题" class="headerlink" title="最初要划分的土地尺寸为1680 m×640 m，而现在要划分的土地更小，为640 m×400 m。**适用于这小块地的最大方块，也是适用于整块地的最大方块** 。换言之，你将均匀划分1680 m×640 m土地的问题，简化成了均匀划分640m*400m土地的问题"></a>最初要划分的土地尺寸为1680 m×640 m，而现在要划分的土地更小，为640 m×400 m。**<em>适用于这小块地的最大方块，也是适用于整块地的最大方块**</em> 。换言之，你将均匀划分1680 m×640 m土地的问题，简化成了均匀划分640m*400m土地的问题</h4><p>下面再次使用同样的算法，对于640m×400m的土地，可从中划出最大400m×400m.这将余下一块更小的土地，其尺寸为400m×240m，同理你又可以划出最大方块，余下更小的土地，其尺寸为240m ×160m.接下来，一直递归同样的方法。直到满足基线条件，即160m×80m，因为160m是80m的整数倍。</p>
-<p>因此对于最初的那片土地，适用的最大方块为80m×80m.</p>
-
-
-<h2 id="这里重申一下D-amp-C的工作原理："><a href="#这里重申一下D-amp-C的工作原理：" class="headerlink" title="这里重申一下D&amp;C的工作原理："></a>这里重申一下D&amp;C的工作原理：</h2><p>1.1找出简单的基线条件；</p>
-<p>2.2确定如何缩小问题的规模，使其符合基线条件。</p>
-<h2 id="本文引自-lt-lt-算法图解-gt-gt-示例。"><a href="#本文引自-lt-lt-算法图解-gt-gt-示例。" class="headerlink" title="本文引自&lt;&lt;算法图解&gt;&gt;示例。"></a><em>本文引自&lt;&lt;算法图解&gt;&gt;示例。</em></h2>
+          
       
       
     </div>
@@ -302,6 +278,10 @@
       
 
       
+      
+        <p class="article-more-link">
+          <a  href="/2020/09/07/%E7%AE%97%E6%B3%95D-C/#more">大航海 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -401,61 +381,6 @@
 
 <p>因为MyBatis实现插件原理是底层通过intercepto接口，而pageHelper5.0以上版本是通过PageInterceptor类继承的intercepto </p>
 <p><img src="D:\Hexo\source_posts\MyBatis的学习笔记\pageHelper.png" alt="pageHelper"><img src="/2020/09/05/MyBatis%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/pageHelper.png" class="" title="This is an image % }&lt;&#x2F;p&gt; &lt;h4 id&#x3D;3-3-知识小结&gt;&lt;a href&#x3D;#3-3-知识小结 class&#x3D;headerlink title&#x3D;3.3 知识小结&gt;&lt;&#x2F;a&gt;3.3 知识小结&lt;&#x2F;h4&gt;&lt;p&gt;MyBatis核心配置文件常用标签：&lt;&#x2F;p&gt; &lt;p&gt;1、properties标签：该标签可以加载外部的properties文件&lt;&#x2F;p&gt; &lt;p&gt;2、typeAliases标签：设置类型别名&lt;&#x2F;p&gt; &lt;p&gt;3、environments标签：数据源环境配置标签&lt;&#x2F;p&gt; &lt;p&gt;4、typeHandlers标签：配置自定义类型处理器&lt;&#x2F;p&gt; &lt;p&gt;5、plugins标签：配置MyBatis的插件&lt;&#x2F;p&gt;">
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-用spring-springMvc做的小案例" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/09/03/%E7%94%A8spring-springMvc%E5%81%9A%E7%9A%84%E5%B0%8F%E6%A1%88%E4%BE%8B/" class="article-date">
-      <time datetime="2020-09-03T09:35:11.000Z" itemprop="datePublished">2020-09-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/03/%E7%94%A8spring-springMvc%E5%81%9A%E7%9A%84%E5%B0%8F%E6%A1%88%E4%BE%8B/">用spring+springMvc做的小案例</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>#需要运用spring&amp;springMVC等知识<br>##经过为期5天的学习，基本掌握渐显的spring&amp;springmvc框架知识，了解了一些框架的基本原理，首先spring需要进行配置文件，配置bean对象，当我们进行三层架构时，web可用注解controle servie层和dao层进行配置文件时，需要无参构造，或者使其setter方法，依赖注入。在最项目中尽可能的代码解耦，<br>###1.导入所需的的工作环境<br>2.配置Maven导入所需的jar包坐标<br>3.分析流程图<br>4.熟练运用三层架构思想<br>5.CRUD逐个解决<br>6.前端数据交互等等<br>####总结，基本掌握一些框架知识，但不能完全独立写出代码流程，crud也不是完全掌握，需要今后多做练习，进行反复嵌套知识，形成一个流程网。。</p>
-
       
       
     </div>
