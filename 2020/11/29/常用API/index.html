@@ -5,13 +5,15 @@
   
   <title>小胡博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最咸的那条鱼">
-<meta property="og:type" content="website">
+  <meta name="description" content="1.API1.1 API概述-帮助文档的使用 什么是API ​    API (Application Programming Interface) ：应用程序编程接口  java中的API ​    指的就是 JDK 中提供的各种功能的 Java类，这些类将底层的实现封装了起来，我们不需要关心这些类是如何实现的，只需要学习这些类如何使用即可，我们可以通过帮助文档来学习这些API如何使用。   如">
+<meta property="og:type" content="article">
 <meta property="og:title" content="小胡博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/2020/11/29/%E5%B8%B8%E7%94%A8API/index.html">
 <meta property="og:site_name" content="小胡博客">
-<meta property="og:description" content="最咸的那条鱼">
+<meta property="og:description" content="1.API1.1 API概述-帮助文档的使用 什么是API ​    API (Application Programming Interface) ：应用程序编程接口  java中的API ​    指的就是 JDK 中提供的各种功能的 Java类，这些类将底层的实现封装了起来，我们不需要关心这些类是如何实现的，只需要学习这些类如何使用即可，我们可以通过帮助文档来学习这些API如何使用。   如">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-29T12:30:27.918Z">
+<meta property="article:modified_time" content="2020-11-29T12:33:46.289Z">
 <meta property="article:author" content="小胡">
 <meta name="twitter:card" content="summary">
   
@@ -31,9 +33,6 @@
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
-    
-    
-  
   
       <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   
@@ -45,8 +44,8 @@
           rootUrl: '/',
           fancybox: true,
           animate: true,
-          isHome: true,
-          isPost: false,
+          isHome: false,
+          isPost: true,
           isArchive: false,
           isTag: false,
           isCategory: false,
@@ -235,9 +234,7 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-常用API" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-常用API" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2020/11/29/%E5%B8%B8%E7%94%A8API/" class="article-date">
@@ -480,289 +477,187 @@
 
       
       
-    </div>
-    
-    <div class="article-info article-info-index">
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>纯属好玩</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/wechatimg.jpg" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+            
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
       
-      
-
-      
-      
-      <div class="clearfix"></div>
     </div>
     
   </div>
   
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-10次方项目第二天" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/10/02/10%E6%AC%A1%E6%96%B9%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%8C%E5%A4%A9/" class="article-date">
-      <time datetime="2020-10-02T02:23:31.421Z" itemprop="datePublished">2020-10-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h3 id="10次方项目第二天"><a href="#10次方项目第二天" class="headerlink" title="10次方项目第二天"></a>10次方项目第二天</h3><p><strong>第2章 - MongoDB和评论管理</strong>   </p>
-<p>   了解什么是MongoDB<br>   掌握MongoDB的安装<br>   掌握MongoDB的常用命令<br>   掌握mongodb-driver的基本使用<br>   掌握SpringDataMongoDB的使用<br>   能够实现文章评论功能开发</p>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a  href="/2020/10/02/10%E6%AC%A1%E6%96%B9%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%8C%E5%A4%A9/#more">精彩部分 >></a>
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2020/11/29/%E5%B8%B8%E7%94%A8API/"></a></p>
+        <p><span>文章作者:</span><a href="/" title="访问  的个人博客"></a></p>
+        <p><span>发布时间:</span>2020年11月29日 - 20时30分</p>
+        <p><span>最后更新:</span>2020年11月29日 - 20时33分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2020/11/29/%E5%B8%B8%E7%94%A8API/" title="">http://yoursite.com/2020/11/29/%E5%B8%B8%E7%94%A8API/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2020/11/29/%E5%B8%B8%E7%94%A8API/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-黑马十次方项目第一天笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/09/28/%E9%BB%91%E9%A9%AC%E5%8D%81%E6%AC%A1%E6%96%B9%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E5%A4%A9%E7%AC%94%E8%AE%B0/" class="article-date">
-      <time datetime="2020-09-28T09:25:34.802Z" itemprop="datePublished">2020-09-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>title: 黑马十次方项目第一天笔记<br>date: 2020-09-28 17:23:25<br>tags:</p>
-<h1 id="第1章-项目介绍和工程搭建-第一天"><a href="#第1章-项目介绍和工程搭建-第一天" class="headerlink" title="第1章 - 项目介绍和工程搭建 (第一天)"></a><strong>第1章 - 项目介绍和工程搭建</strong> (第一天)</h1><h3 id="学习目标："><a href="#学习目标：" class="headerlink" title="学习目标："></a>学习目标：</h3><h2 id="了解十次方项目需求；"><a href="#了解十次方项目需求；" class="headerlink" title="了解十次方项目需求；"></a>了解十次方项目需求；</h2><h6 id="了解前后端分离开发模式"><a href="#了解前后端分离开发模式" class="headerlink" title="了解前后端分离开发模式"></a>了解前后端分离开发模式</h6><h6 id="理解RESTful"><a href="#理解RESTful" class="headerlink" title="理解RESTful"></a>理解RESTful</h6><h6 id="完成项目开发环境搭建"><a href="#完成项目开发环境搭建" class="headerlink" title="完成项目开发环境搭建"></a>完成项目开发环境搭建</h6><h6 id="完成父工程、公共模块和文章微服务的搭建"><a href="#完成父工程、公共模块和文章微服务的搭建" class="headerlink" title="完成父工程、公共模块和文章微服务的搭建"></a>完成父工程、公共模块和文章微服务的搭建</h6><h6 id="掌握mybatis-plus的使用，并开发完成文章微服务中文章的增删改查功能-掌握公共异常处理类的使用"><a href="#掌握mybatis-plus的使用，并开发完成文章微服务中文章的增删改查功能-掌握公共异常处理类的使用" class="headerlink" title="掌握mybatis plus的使用，并开发完成文章微服务中文章的增删改查功能 掌握公共异常处理类的使用"></a>掌握mybatis plus的使用，并开发完成文章微服务中文章的增删改查功能 掌握公共异常处理类的使用</h6><p><strong>1</strong> <strong>十次方项目需求分析</strong></p>
-<p> <strong>1.1</strong> <strong>项目介绍</strong><br>十次方是程序员的专属社交平台，包括头条、问答、活动、交友、吐槽、招聘六 大频道。<br>十次方名称的由来：2的10次方为1024，程序员都懂的。如果你是一位技术大咖，那么赶快发布文章，增加知名度吧。<br>如果你是一名技术小白，那么赶快到问答频道寻求帮助的，这里高手如云哦！</p>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a  href="/2020/09/28/%E9%BB%91%E9%A9%AC%E5%8D%81%E6%AC%A1%E6%96%B9%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E5%A4%A9%E7%AC%94%E8%AE%B0/#more">精彩部分 >></a>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
         </p>
-      
-      <div class="clearfix"></div>
     </div>
-    
-  </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/10/02/10%E6%AC%A1%E6%96%B9%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%8C%E5%A4%A9/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-API"><span class="toc-number">1.</span> <span class="toc-text">1.API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-API%E6%A6%82%E8%BF%B0-%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 API概述-帮助文档的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E9%94%AE%E7%9B%98%E5%BD%95%E5%85%A5%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 键盘录入字符串</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-String%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text">2. String类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-String%E6%A6%82%E8%BF%B0"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 String概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-String%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 String类的构造方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E5%88%9B%E5%BB%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8C%BA%E5%88%AB%E5%AF%B9%E6%AF%94"><span class="toc-number">2.3.</span> <span class="toc-text">2.4 创建字符串对象的区别对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-number">2.4.</span> <span class="toc-text">2.5 字符串的比较</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-1-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-number">2.4.1.</span> <span class="toc-text">2.5.1 字符串的比较</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E6%A1%88%E4%BE%8B%E3%80%90%E5%BA%94%E7%94%A8%E3%80%91"><span class="toc-number">2.5.</span> <span class="toc-text">2.6 用户登录案例【应用】</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-%E9%81%8D%E5%8E%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A1%88%E4%BE%8B%E3%80%90%E5%BA%94%E7%94%A8%E3%80%91"><span class="toc-number">2.6.</span> <span class="toc-text">2.7 遍历字符串案例【应用】</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-%E7%BB%9F%E8%AE%A1%E5%AD%97%E7%AC%A6%E6%AC%A1%E6%95%B0%E6%A1%88%E4%BE%8B%E3%80%90%E5%BA%94%E7%94%A8%E3%80%91"><span class="toc-number">2.7.</span> <span class="toc-text">2.8 统计字符次数案例【应用】</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-9-%E6%89%8B%E6%9C%BA%E5%8F%B7%E5%B1%8F%E8%94%BD-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%88%AA%E5%8F%96"><span class="toc-number">2.8.</span> <span class="toc-text">2.9 手机号屏蔽-字符串截取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-10-%E6%95%8F%E6%84%9F%E8%AF%8D%E6%9B%BF%E6%8D%A2-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9B%BF%E6%8D%A2"><span class="toc-number">2.9.</span> <span class="toc-text">2.10 敏感词替换-字符串替换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-11-%E5%88%87%E5%89%B2%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">2.10.</span> <span class="toc-text">2.11 切割字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-12-String%E6%96%B9%E6%B3%95%E5%B0%8F%E7%BB%93"><span class="toc-number">2.11.</span> <span class="toc-text">2.12 String方法小结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-StringBuilder%E7%B1%BB"><span class="toc-number">3.</span> <span class="toc-text">3 StringBuilder类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-StringBuilder%E7%B1%BB%E6%A6%82%E8%BF%B0"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 StringBuilder类概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-StringBuilder%E7%B1%BB%E5%92%8CString%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 StringBuilder类和String类的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3StringBuilder%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="toc-number">3.3.</span> <span class="toc-text">3.3StringBuilder类的构造方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-StringBuilder%E5%B8%B8%E7%94%A8%E7%9A%84%E6%88%90%E5%91%98%E6%96%B9%E6%B3%95"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 StringBuilder常用的成员方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5StringBuilder%E5%92%8CString%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2%E3%80%90%E5%BA%94%E7%94%A8%E3%80%91"><span class="toc-number">3.5.</span> <span class="toc-text">3.5StringBuilder和String相互转换【应用】</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-StringBuilder%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A1%88%E4%BE%8B"><span class="toc-number">3.6.</span> <span class="toc-text">3.6 StringBuilder拼接字符串案例</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
 
 
 
 
 
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 
 
 
-  
-    <article id="post-RabbitMQ安装说明文档" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/09/14/RabbitMQ%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/" class="article-date">
-      <time datetime="2020-09-14T07:19:29.275Z" itemprop="datePublished">2020-09-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
+
     
-      <input type="hidden" class="isFancy" />
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'xiaohu',
+      repo: '2447850100.github.io',
+      oauth: {
+        client_id: '',
+        client_secret: '',
+      },
+    })
+    gitment.render('gitments')
+</script>
     
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="1-安装依赖环境"><a href="#1-安装依赖环境" class="headerlink" title="1. 安装依赖环境"></a>1. 安装依赖环境</h2><p>在线安装依赖环境：</p>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a  href="/2020/09/14/RabbitMQ%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/#more">精彩部分 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
 
 
 
-
-
-
-
-
-
-  
-    <article id="post-算法D-C" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/09/07/%E7%AE%97%E6%B3%95D-C/" class="article-date">
-      <time datetime="2020-09-07T12:51:00.000Z" itemprop="datePublished">2020-09-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+    <div class="scroll" id="post-nav-button">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/07/%E7%AE%97%E6%B3%95D-C/">算法D&amp;C</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <hr>
-<p>title: 算法D&amp;C<br>author: 小胡<br>tags:</p>
-<p>正文：</p>
-<hr>
-          
-      
-      
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2020/10/02/10%E6%AC%A1%E6%96%B9%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%8C%E5%A4%A9/" title="下一篇: ">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
     </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a  href="/2020/09/07/%E7%AE%97%E6%B3%95D-C/#more">精彩部分 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/11/29/%E5%B8%B8%E7%94%A8API/">常用API</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/10/02/10%E6%AC%A1%E6%96%B9%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%8C%E5%A4%A9/">10次方项目第二天</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/28/%E9%BB%91%E9%A9%AC%E5%8D%81%E6%AC%A1%E6%96%B9%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E5%A4%A9%E7%AC%94%E8%AE%B0/">黑马十次方项目第一天笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/14/RabbitMQ%E5%AE%89%E8%A3%85%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/">RabbitMQ安装说明文档</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/07/%E7%AE%97%E6%B3%95D-C/">算法D&C</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/09/05/MyBatis%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">MyBatis的学习笔记</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
 
 
 
-
-
-  
-    <article id="post-MyBatis的学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2020/09/05/MyBatis%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
-      <time datetime="2020-09-05T09:49:19.327Z" itemprop="datePublished">2020-09-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>title: MyBatis的学习笔记<br>date: 2020-09-05 17:49:19<br>tags:</p>
-<h1 id="1-Mybatis的Dao层实现"><a href="#1-Mybatis的Dao层实现" class="headerlink" title="1.Mybatis的Dao层实现"></a>1.Mybatis的Dao层实现</h1>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a  href="/2020/09/05/MyBatis%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">精彩部分 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-  
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
